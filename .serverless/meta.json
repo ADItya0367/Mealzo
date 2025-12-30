@@ -1,0 +1,237 @@
+{
+  "C:\\Users\\admin\\Desktop\\Z-Extra\\Next PWA\\pwa-backend\\serverless.yml": {
+    "versionFramework": "4.27.0",
+    "servicePath": "C:\\Users\\admin\\Desktop\\Z-Extra\\Next PWA\\pwa-backend\\serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "your-project-name",
+      "frameworkVersion": "4",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs20.x",
+        "region": "ap-south-1",
+        "timeout": 30,
+        "environment": {
+          "NODE_ENV": "production"
+        },
+        "stage": "dev",
+        "versionFunctions": true
+      },
+      "functions": {
+        "api": {
+          "handler": "src/lambda.handler",
+          "events": [
+            {
+              "httpApi": "*"
+            }
+          ]
+        }
+      },
+      "plugins": [
+        "serverless-offline",
+        "serverless-dotenv-plugin"
+      ]
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs20.x",
+      "region": "ap-south-1",
+      "timeout": 30,
+      "environment": {
+        "NODE_ENV": "production"
+      },
+      "stage": "dev",
+      "versionFunctions": true
+    },
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "error": {
+      "message": "Serverless plugin \"serverless-offline\" not found. Make sure it's installed and listed in the \"plugins\" section of your serverless config file. Use the --debug flag to learn more.",
+      "stack": "ServerlessError2: Serverless plugin \"serverless-offline\" not found. Make sure it's installed and listed in the \"plugins\" section of your serverless config file. Use the --debug flag to learn more.\n    at PluginManager.resolveServicePlugins (file:///C:/Users/admin/.serverless/releases/4.27.0/package/dist/sf-core.js:1372:4438)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async PluginManager.loadAllPlugins (file:///C:/Users/admin/.serverless/releases/4.27.0/package/dist/sf-core.js:1372:2626)\n    at async Serverless.init (file:///C:/Users/admin/.serverless/releases/4.27.0/package/dist/sf-core.js:1379:9844)\n    at async runFramework (file:///C:/Users/admin/.serverless/releases/4.27.0/package/dist/sf-core.js:1406:843)\n    at async TraditionalRunner.run (file:///C:/Users/admin/.serverless/releases/4.27.0/package/dist/sf-core.js:1402:28508)\n    at async route (file:///C:/Users/admin/.serverless/releases/4.27.0/package/dist/sf-core.js:1577:2848)\n    at async Object.run (file:///C:/Users/admin/.serverless/releases/4.27.0/package/dist/sf-core.js:1578:3876)\n    at async run2 (file:///C:/Users/admin/.serverless/releases/4.27.0/package/dist/sf-core.js:1578:5030)",
+      "code": "PLUGIN_NOT_FOUND"
+    },
+    "serviceRawFile": "service: your-project-name\r\nframeworkVersion: \"4\"\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  region: ap-south-1\r\n  timeout: 30\r\n  environment:\r\n    NODE_ENV: production\r\n\r\nfunctions:\r\n  api:\r\n    handler: src/lambda.handler\r\n    events:\r\n      - httpApi: '*'\r\n\r\nplugins:\r\n  - serverless-offline\r\n  - serverless-dotenv-plugin\r\n",
+    "command": [
+      "offline"
+    ],
+    "options": {},
+    "orgId": "38af755e-0d1b-49a6-9086-9e20db98e54d",
+    "orgName": "12345678b",
+    "userId": "87jCbky38vlxMHHSVx",
+    "userName": "12345678b",
+    "serviceProviderAwsAccountId": "134080855983",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  },
+  "C:\\Users\\hp\\OneDrive\\Desktop\\MealZo\\Mealzo\\backend\\serverless.yml": {
+    "versionFramework": "4.29.3",
+    "servicePath": "C:\\Users\\hp\\OneDrive\\Desktop\\MealZo\\Mealzo\\backend\\serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "your-project-name",
+      "frameworkVersion": "4",
+      "custom": {
+        "stage": "dev",
+        "region": "ap-south-1",
+        "serverless-offline": {
+          "httpPort": 3000
+        }
+      },
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs20.x",
+        "region": "ap-south-1",
+        "stage": "dev",
+        "timeout": 30,
+        "memorySize": 512,
+        "environment": {
+          "NODE_ENV": "${self:custom.stage}",
+          "AWS_REGION": "${self:custom.region}"
+        }
+      },
+      "plugins": [
+        "serverless-offline"
+      ],
+      "functions": {
+        "api": {
+          "handler": "src/lambda.handler",
+          "description": "Main Express API Lambda",
+          "events": [
+            {
+              "httpApi": {
+                "path": "/{proxy+}",
+                "method": "ANY"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/auth/register",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/auth/login",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/auth/forgot",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/auth/reset-password",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/products/add-product",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/products/delete-product",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/products/get-products",
+                "method": "GET"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/products/get-product",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/products/update-product",
+                "method": "PUT"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/users/add-customer",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/users/get-customer",
+                "method": "GET"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/users/status-change",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/users/delete-customer",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/users/get-customerId",
+                "method": "POST"
+              }
+            },
+            {
+              "httpApi": {
+                "path": "/api/users/update-customer",
+                "method": "PUT"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs20.x",
+      "region": "ap-south-1",
+      "stage": "dev",
+      "timeout": 30,
+      "memorySize": 512,
+      "environment": {
+        "NODE_ENV": "${self:custom.stage}",
+        "AWS_REGION": "${self:custom.region}"
+      }
+    },
+    "error": {
+      "message": "Sorry, our authentication service is currently experiencing issues. Please try again in a few moments. We've been alerted of the issue.",
+      "stack": "Error: Sorry, our authentication service is currently experiencing issues. Please try again in a few moments. We've been alerted of the issue.\n    at Authentication.authenticateInteractive (file:///C:/Users/hp/.serverless/releases/4.29.3/package/dist/sf-core.js:680:14339)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Authentication.getAuthenticatedData (file:///C:/Users/hp/.serverless/releases/4.29.3/package/dist/sf-core.js:678:11696)\n    at async Authentication.authenticate (file:///C:/Users/hp/.serverless/releases/4.29.3/package/dist/sf-core.js:681:4121)\n    at async TraditionalRunner.resolveVariablesAndAuthenticate (file:///C:/Users/hp/.serverless/releases/4.29.3/package/dist/sf-core.js:689:2394)\n    at async TraditionalRunner.run (file:///C:/Users/hp/.serverless/releases/4.29.3/package/dist/sf-core.js:1490:27789)\n    at async route (file:///C:/Users/hp/.serverless/releases/4.29.3/package/dist/sf-core.js:1665:2848)\n    at async Object.run (file:///C:/Users/hp/.serverless/releases/4.29.3/package/dist/sf-core.js:1666:3876)\n    at async run2 (file:///C:/Users/hp/.serverless/releases/4.29.3/package/dist/sf-core.js:1666:5030)"
+    },
+    "serviceRawFile": "service: your-project-name\r\nframeworkVersion: \"4\"\r\ncustom:\r\n  stage: ${opt:stage, 'dev'}\r\n  region: ap-south-1\r\n\r\n  serverless-offline:\r\n    httpPort: 3000\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  region: ${self:custom.region}\r\n  stage: ${self:custom.stage}\r\n  timeout: 30\r\n  memorySize: 512\r\n\r\n  environment:\r\n    NODE_ENV: ${self:custom.stage}\r\n    AWS_REGION: ${self:custom.region}\r\n\r\nplugins:\r\n  - serverless-offline\r\n\r\nfunctions:\r\n  api:\r\n    handler: src/lambda.handler\r\n    description: Main Express API Lambda\r\n    events:\r\n      - httpApi:\r\n          path: /{proxy+}\r\n          method: ANY\r\n\r\n      - httpApi:\r\n          path: /api/auth/register\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/auth/login\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/auth/forgot\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/auth/reset-password\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/products/add-product\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/products/delete-product\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/products/get-products\r\n          method: GET\r\n\r\n      - httpApi:\r\n          path: /api/products/get-product\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/products/update-product\r\n          method: PUT\r\n\r\n      - httpApi:\r\n          path: /api/users/add-customer\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/users/get-customer\r\n          method: GET\r\n\r\n      - httpApi:\r\n          path: /api/users/status-change\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/users/delete-customer\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/users/get-customerId\r\n          method: POST\r\n\r\n      - httpApi:\r\n          path: /api/users/update-customer\r\n          method: PUT\r\n",
+    "command": [
+      "offline"
+    ],
+    "options": {},
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

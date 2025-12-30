@@ -1,0 +1,92 @@
+service: your-project-name
+frameworkVersion: "4"
+custom:
+  stage: ${opt:stage, 'dev'}
+  region: ap-south-1
+
+  serverless-offline:
+    httpPort: 3000
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ${self:custom.region}
+  stage: ${self:custom.stage}
+  timeout: 30
+  memorySize: 512
+
+  environment:
+    NODE_ENV: ${self:custom.stage}
+    AWS_REGION: ${self:custom.region}
+
+plugins:
+  - serverless-offline
+
+functions:
+  api:
+    handler: src/lambda.handler
+    description: Main Express API Lambda
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: ANY
+
+      - httpApi:
+          path: /api/auth/register
+          method: POST
+
+      - httpApi:
+          path: /api/auth/login
+          method: POST
+
+      - httpApi:
+          path: /api/auth/forgot
+          method: POST
+
+      - httpApi:
+          path: /api/auth/reset-password
+          method: POST
+
+      - httpApi:
+          path: /api/products/add-product
+          method: POST
+
+      - httpApi:
+          path: /api/products/delete-product
+          method: POST
+
+      - httpApi:
+          path: /api/products/get-products
+          method: GET
+
+      - httpApi:
+          path: /api/products/get-product
+          method: POST
+
+      - httpApi:
+          path: /api/products/update-product
+          method: PUT
+
+      - httpApi:
+          path: /api/users/add-customer
+          method: POST
+
+      - httpApi:
+          path: /api/users/get-customer
+          method: GET
+
+      - httpApi:
+          path: /api/users/status-change
+          method: POST
+
+      - httpApi:
+          path: /api/users/delete-customer
+          method: POST
+
+      - httpApi:
+          path: /api/users/get-customerId
+          method: POST
+
+      - httpApi:
+          path: /api/users/update-customer
+          method: PUT

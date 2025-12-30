@@ -1,0 +1,40 @@
+{
+  "name": "pwa-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "offline": "sls offline",
+    "deploy": "sls deploy",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "joi": "^18.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.1.0",
+    "mysql2": "^3.15.3",
+    "nodemailer": "^7.0.11",
+    "nodemon": "^3.1.11",
+    "sequelize": "^6.37.7",
+    "serverless-http": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "babel-jest": "^30.2.0",
+    "jest": "^30.2.0",
+    "sequelize-cli": "^6.6.3",
+    "serverless-offline": "^14.4.0"
+  }
+}
